@@ -12,4 +12,8 @@ export const wordArrays:wordType[] = [
 	{majar:"りんご",minor:"梨"},
 	{majar:"イギリス",minor:"フランス"},
 	{majar:"ポケモン",minor:"デジモン"},
+	{majar:"フライパン",minor:"鍋"},
+	{majar:"カレー",minor:"シチュー"},
+	{majar:"洗濯機",minor:"乾燥機"},
+	{majar:"鬼滅の刃",minor:"呪術廻戦"},
 ]
