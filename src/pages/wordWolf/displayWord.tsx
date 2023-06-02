@@ -1,11 +1,6 @@
 import {wordArrays} from "./word"
 import { useRouter } from "next/router";
-import { Props } from "next/script";
-import React, { ButtonHTMLAttributes, ReactNode, useState } from 'react';
-
-type types = {
-    sampleWord:String;
-}
+import React, { ReactNode, useState } from 'react';
 
 // 表示する画面
 const Display = () =>{
