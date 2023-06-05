@@ -30,14 +30,14 @@ const Display = () => {
   };
 
   // 結果発表
-  function resultAnnounce() {
+  const resultAnnounce = () => {
     {
       router.push({
         pathname: "./resultsAnnounce",
         query: { wolf: wolf, wolfWord: wordArray.minor }, // ココ
       });
     }
-  }
+  };
 
   //ワードを確認した場合
   const confirmWord = () => {

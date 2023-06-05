@@ -9,9 +9,9 @@ const AnnounceResult = () => {
   const [wolf] = useState(router.query.wolf);
   const [wolfWord] = useState(router.query.wolfWord);
 
-  function tryAgain() {
+  const tryAgain = () => {
     router.push("./input");
-  }
+  };
 
   return (
     <>

@@ -7,7 +7,7 @@ const PlayerInput = () => {
   const [value, setValue] = useState("3");
   const router = useRouter();
 
-  function playerDecide() {
+  const playerDecide = () => {
     const result = window.confirm(
       "プレイヤーの人数は" + value + "人でよろしいでしょうか？"
     );
@@ -17,7 +17,7 @@ const PlayerInput = () => {
         query: { playerNumber: value }, // ココ
       });
     }
-  }
+  };
 
   return (
     <>
@@ -30,7 +30,7 @@ const PlayerInput = () => {
         <option value="7">7人</option>
         <option value="8">8人</option>
       </select>
-      <Button variant="contained" onClick={() => playerDecide()}>
+      <Button variant="contained" onClick={playerDecide}>
         プレイヤーを決定する
       </Button>
     </>
