@@ -17,8 +17,8 @@ const Display = () => {
   );
   const wordArray = wordArrays[wordNumber];
 
-  var [checked, changeChecked] = useState(false);
-  var Word: string = count == wolf ? wordArray.minor : wordArray.majar;
+  let [checked, changeChecked] = useState(false);
+  let Word: string = count == wolf ? wordArray.minor : wordArray.majar;
 
   // 「Yes」ならプレイヤー1にワードを見せる
   const checkWord = () => {
