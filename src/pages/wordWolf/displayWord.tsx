@@ -10,7 +10,6 @@ const Display = () => {
   const router = useRouter();
   const [playerNumber] = useState(router.query.playerNumber);
   const [wolf] = useState(Math.floor(Math.random() * Number(playerNumber)) + 1);
-
   //人狼のワードを決定
   const [wordNumber] = useState(
     Math.floor(Math.random() * Number(wordArrays.length))

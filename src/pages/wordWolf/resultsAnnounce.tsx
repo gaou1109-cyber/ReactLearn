@@ -8,6 +8,11 @@ const AnnounceResult = () => {
   const router = useRouter();
   const [wolf] = useState(router.query.wolf);
   const [wolfWord] = useState(router.query.wolfWord);
+
+  function tryAgain() {
+    router.push("./input");
+  }
+
   return (
     <>
       <p>
@@ -18,9 +23,5 @@ const AnnounceResult = () => {
       </Button>
     </>
   );
-
-  function tryAgain() {
-    router.push("./input");
-  }
 };
 export default AnnounceResult;

@@ -4,7 +4,9 @@ import Button from "@mui/material/Button";
 
 // プレイヤーの人数
 const PlayerInput = () => {
+  const [value, setValue] = useState("3");
   const router = useRouter();
+
   function playerDecide() {
     const result = window.confirm(
       "プレイヤーの人数は" + value + "人でよろしいでしょうか？"
@@ -16,8 +18,6 @@ const PlayerInput = () => {
       });
     }
   }
-
-  const [value, setValue] = useState("3");
 
   return (
     <>
