@@ -18,7 +18,7 @@ const Display = () => {
   const wordArray = wordArrays[wordNumber];
 
   const [checked, setChecked] = useState(false);
-  const Word: string = count == wolf ? wordArray.minor : wordArray.majar;
+  const word: string = count == wolf ? wordArray.minor : wordArray.majar;
 
   // 「Yes」ならプレイヤー1にワードを見せる
   const hancleCheckWord = (): void => {
@@ -57,7 +57,7 @@ const Display = () => {
   } else if (checked && Number(playerNumber) >= count) {
     return (
       <DisplayhancleCheckWord
-        Word={Word}
+        word={word}
         handleConfirmWord={() => handleConfirmWord()}
       />
     );
@@ -67,13 +67,13 @@ const Display = () => {
 };
 
 type displayhancleCheckWordProps = {
-  Word: String;
+  word: String;
   handleConfirmWord: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 // プレイヤー1にワードを見せる
 const DisplayhancleCheckWord: React.FC<displayhancleCheckWordProps> = ({
-  Word,
+  word,
   handleConfirmWord,
 }) => {
   return (
@@ -81,7 +81,7 @@ const DisplayhancleCheckWord: React.FC<displayhancleCheckWordProps> = ({
       <Container component="main" maxWidth="xs">
         <FormControl>
           <p>
-            あなたのワードは<strong>{Word}</strong>です
+            あなたのワードは<strong>{word}</strong>です
           </p>
           <Button variant="contained" onClick={handleConfirmWord}>
             確認した
