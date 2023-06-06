@@ -17,7 +17,7 @@ const PlayerInput = () => {
     if (result) {
       router.push({
         pathname: "./displayWord",
-        query: { playerNumber: value },
+        query: { playerNumber: parseInt(value) },
       });
     }
   };
