@@ -21,17 +21,17 @@ const Display = () => {
   let Word: string = count == wolf ? wordArray.minor : wordArray.majar;
 
   // 「Yes」ならプレイヤー1にワードを見せる
-  const checkWord = (): void => {
+  const hancleCheckWord = (): void => {
     changeChecked((checked = true));
   };
 
   //プレイヤーが違う場合
-  const wrongPlayer = (): void => {
+  const handleWrongPlayer = (): void => {
     alert("プレイヤーに" + count + "画面を見せてください");
   };
 
   // 結果発表
-  const resultAnnounce = (): void => {
+  const handleAnnounceResult = (): void => {
     {
       router.push({
         pathname: "./resultsAnnounce",
@@ -41,7 +41,7 @@ const Display = () => {
   };
 
   //ワードを確認した場合
-  const confirmWord = (): void => {
+  const handleConfirmWord = (): void => {
     currentPlayer(count + 1);
     changeChecked((checked = false));
   };
@@ -50,26 +50,31 @@ const Display = () => {
     return (
       <DisplayConfirmPlayer
         count={count}
-        checkWord={() => checkWord()}
-        wrongPlayer={() => wrongPlayer()}
+        hancleCheckWord={() => hancleCheckWord()}
+        handleWrongPlayer={() => handleWrongPlayer()}
       />
     );
   } else if (checked && Number(playerNumber) >= count) {
-    return <DisplayCheckWord Word={Word} confirmWord={() => confirmWord()} />;
+    return (
+      <DisplayhancleCheckWord
+        Word={Word}
+        handleConfirmWord={() => handleConfirmWord()}
+      />
+    );
   } else if (Number(playerNumber) < count) {
-    return <DisplayTalk resultAnnounce={() => resultAnnounce()} />;
+    return <DisplayTalk handleAnnounceResult={() => handleAnnounceResult()} />;
   }
 };
 
-type DisplayCheckWord = {
+type DisplayhancleCheckWord = {
   Word: String;
-  confirmWord: React.MouseEventHandler<HTMLButtonElement>;
+  handleConfirmWord: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 // プレイヤー1にワードを見せる
-const DisplayCheckWord: React.FC<DisplayCheckWord> = ({
+const DisplayhancleCheckWord: React.FC<DisplayhancleCheckWord> = ({
   Word,
-  confirmWord,
+  handleConfirmWord,
 }) => {
   return (
     <>
@@ -78,7 +83,7 @@ const DisplayCheckWord: React.FC<DisplayCheckWord> = ({
           <p>
             あなたのワードは<strong>{Word}</strong>です
           </p>
-          <Button variant="contained" onClick={confirmWord}>
+          <Button variant="contained" onClick={handleConfirmWord}>
             確認した
           </Button>
         </FormControl>
@@ -89,25 +94,25 @@ const DisplayCheckWord: React.FC<DisplayCheckWord> = ({
 
 type DisplayConfirmPlayer = {
   count: number;
-  checkWord: React.MouseEventHandler<HTMLButtonElement>;
-  wrongPlayer: React.MouseEventHandler<HTMLButtonElement>;
+  hancleCheckWord: React.MouseEventHandler<HTMLButtonElement>;
+  handleWrongPlayer: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 // プレイヤー1を確認する
 const DisplayConfirmPlayer: React.FC<DisplayConfirmPlayer> = ({
   count,
-  checkWord,
-  wrongPlayer,
+  hancleCheckWord,
+  handleWrongPlayer,
 }) => {
   return (
     <>
       <Container component="main" maxWidth="xs">
         <FormControl>
           <p>あなたはプレイヤー{count}ですか</p>
-          <Button variant="contained" onClick={checkWord} sx={{ mb: 2 }}>
+          <Button variant="contained" onClick={hancleCheckWord} sx={{ mb: 2 }}>
             はい
           </Button>
-          <Button variant="contained" onClick={wrongPlayer}>
+          <Button variant="contained" onClick={handleWrongPlayer}>
             いいえ
           </Button>
         </FormControl>
@@ -117,16 +122,16 @@ const DisplayConfirmPlayer: React.FC<DisplayConfirmPlayer> = ({
 };
 
 type DisplayTalk = {
-  resultAnnounce: React.MouseEventHandler<HTMLButtonElement>;
+  handleAnnounceResult: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const DisplayTalk: React.FC<DisplayTalk> = ({ resultAnnounce }) => {
+const DisplayTalk: React.FC<DisplayTalk> = ({ handleAnnounceResult }) => {
   return (
     <>
       <Container component="main" maxWidth="xs">
         <FormControl>
           <p>全員にワードが行きわたりました。トークを開始してください</p>
-          <Button variant="contained" onClick={resultAnnounce}>
+          <Button variant="contained" onClick={handleAnnounceResult}>
             結果発表
           </Button>
         </FormControl>

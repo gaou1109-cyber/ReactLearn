@@ -10,7 +10,7 @@ const PlayerInput = () => {
   const [value, setValue] = useState("3");
   const router = useRouter();
 
-  const playerDecide = () => {
+  const handleDecidePlayer = () => {
     const result = window.confirm(
       "プレイヤーの人数は" + value + "人でよろしいでしょうか？"
     );
@@ -44,7 +44,7 @@ const PlayerInput = () => {
             <option value="7">7人</option>
             <option value="8">8人</option>
           </Select>
-          <Button variant="contained" onClick={playerDecide}>
+          <Button variant="contained" onClick={handleDecidePlayer}>
             プレイヤーを決定する
           </Button>
         </FormControl>
