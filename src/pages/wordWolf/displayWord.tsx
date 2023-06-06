@@ -17,12 +17,12 @@ const Display = () => {
   );
   const wordArray = wordArrays[wordNumber];
 
-  let [checked, changeChecked] = useState(false);
-  let Word: string = count == wolf ? wordArray.minor : wordArray.majar;
+  const [checked, changeChecked] = useState(false);
+  const Word: string = count == wolf ? wordArray.minor : wordArray.majar;
 
   // 「Yes」ならプレイヤー1にワードを見せる
   const hancleCheckWord = (): void => {
-    changeChecked((checked = true));
+    changeChecked(true);
   };
 
   //プレイヤーが違う場合
@@ -43,7 +43,7 @@ const Display = () => {
   //ワードを確認した場合
   const handleConfirmWord = (): void => {
     currentPlayer(count + 1);
-    changeChecked((checked = false));
+    changeChecked(false);
   };
 
   if (!checked && Number(playerNumber) >= count) {
