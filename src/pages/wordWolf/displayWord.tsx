@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 
 // 表示する画面
 const Display = () => {
-  const [count, currentPlayer] = useState(1);
+  const [count, setCount] = useState(1);
   const router = useRouter();
   const [playerNumber] = useState(router.query.playerNumber);
   const [wolf] = useState(Math.floor(Math.random() * Number(playerNumber)) + 1);
@@ -17,12 +17,12 @@ const Display = () => {
   );
   const wordArray = wordArrays[wordNumber];
 
-  const [checked, changeChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
   const Word: string = count == wolf ? wordArray.minor : wordArray.majar;
 
   // 「Yes」ならプレイヤー1にワードを見せる
   const hancleCheckWord = (): void => {
-    changeChecked(true);
+    setChecked(true);
   };
 
   //プレイヤーが違う場合
@@ -42,8 +42,8 @@ const Display = () => {
 
   //ワードを確認した場合
   const handleConfirmWord = (): void => {
-    currentPlayer(count + 1);
-    changeChecked(false);
+    setCount(count + 1);
+    setChecked(false);
   };
 
   if (!checked && Number(playerNumber) >= count) {
