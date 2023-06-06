@@ -21,17 +21,17 @@ const Display = () => {
   let Word: string = count == wolf ? wordArray.minor : wordArray.majar;
 
   // 「Yes」ならプレイヤー1にワードを見せる
-  const checkWord = () => {
+  const checkWord = (): void => {
     changeChecked((checked = true));
   };
 
   //プレイヤーが違う場合
-  const wrongPlayer = () => {
+  const wrongPlayer = (): void => {
     alert("プレイヤーに" + count + "画面を見せてください");
   };
 
   // 結果発表
-  const resultAnnounce = () => {
+  const resultAnnounce = (): void => {
     {
       router.push({
         pathname: "./resultsAnnounce",
@@ -41,7 +41,7 @@ const Display = () => {
   };
 
   //ワードを確認した場合
-  const confirmWord = () => {
+  const confirmWord = (): void => {
     currentPlayer(count + 1);
     changeChecked((checked = false));
   };
