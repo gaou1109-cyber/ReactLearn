@@ -66,13 +66,13 @@ const Display = () => {
   }
 };
 
-type DisplayhancleCheckWord = {
+type displayhancleCheckWordProps = {
   Word: String;
   handleConfirmWord: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 // プレイヤー1にワードを見せる
-const DisplayhancleCheckWord: React.FC<DisplayhancleCheckWord> = ({
+const DisplayhancleCheckWord: React.FC<displayhancleCheckWordProps> = ({
   Word,
   handleConfirmWord,
 }) => {
@@ -92,14 +92,14 @@ const DisplayhancleCheckWord: React.FC<DisplayhancleCheckWord> = ({
   );
 };
 
-type DisplayConfirmPlayer = {
+type displayConfirmPlayerProps = {
   count: number;
   hancleCheckWord: React.MouseEventHandler<HTMLButtonElement>;
   handleWrongPlayer: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 // プレイヤー1を確認する
-const DisplayConfirmPlayer: React.FC<DisplayConfirmPlayer> = ({
+const DisplayConfirmPlayer: React.FC<displayConfirmPlayerProps> = ({
   count,
   hancleCheckWord,
   handleWrongPlayer,
@@ -121,11 +121,11 @@ const DisplayConfirmPlayer: React.FC<DisplayConfirmPlayer> = ({
   );
 };
 
-type DisplayTalk = {
+type displayTalkProps = {
   handleAnnounceResult: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const DisplayTalk: React.FC<DisplayTalk> = ({ handleAnnounceResult }) => {
+const DisplayTalk: React.FC<displayTalkProps> = ({ handleAnnounceResult }) => {
   return (
     <>
       <Container component="main" maxWidth="xs">
