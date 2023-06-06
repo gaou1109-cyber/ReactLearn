@@ -2,7 +2,8 @@ import { wordArrays } from "./word";
 import { useRouter } from "next/router";
 import React, { ReactNode, useState } from "react";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import Container from "@mui/material/Container";
 
 // 表示する画面
 const Display = () => {
@@ -72,18 +73,22 @@ const DisplayCheckWord: React.FC<DisplayCheckWord> = ({
 }) => {
   return (
     <>
-      <Box>
-        <p>あなたのワードは{Word}です</p>
-        <Button variant="contained" onClick={confirmWord}>
-          確認した
-        </Button>
-      </Box>
+      <Container component="main" maxWidth="xs">
+        <FormControl>
+          <p>
+            あなたのワードは<strong>{Word}</strong>です
+          </p>
+          <Button variant="contained" onClick={confirmWord}>
+            確認した
+          </Button>
+        </FormControl>
+      </Container>
     </>
   );
 };
 
 type DisplayConfirmPlayer = {
-  count: ReactNode;
+  count: number;
   checkWord: React.MouseEventHandler<HTMLButtonElement>;
   wrongPlayer: React.MouseEventHandler<HTMLButtonElement>;
 };
@@ -96,13 +101,17 @@ const DisplayConfirmPlayer: React.FC<DisplayConfirmPlayer> = ({
 }) => {
   return (
     <>
-      <p>あなたはプレイヤー{count}ですか</p>
-      <Button variant="contained" onClick={checkWord}>
-        はい
-      </Button>
-      <Button variant="contained" onClick={wrongPlayer}>
-        いいえ
-      </Button>
+      <Container component="main" maxWidth="xs">
+        <FormControl>
+          <p>あなたはプレイヤー{count}ですか</p>
+          <Button variant="contained" onClick={checkWord} sx={{ mb: 2 }}>
+            はい
+          </Button>
+          <Button variant="contained" onClick={wrongPlayer}>
+            いいえ
+          </Button>
+        </FormControl>
+      </Container>
     </>
   );
 };
@@ -114,10 +123,14 @@ type DisplayTalk = {
 const DisplayTalk: React.FC<DisplayTalk> = ({ resultAnnounce }) => {
   return (
     <>
-      <p>全員にワードが行きわたりました。トークを開始してください</p>
-      <Button variant="contained" onClick={resultAnnounce}>
-        結果発表
-      </Button>
+      <Container component="main" maxWidth="xs">
+        <FormControl>
+          <p>全員にワードが行きわたりました。トークを開始してください</p>
+          <Button variant="contained" onClick={resultAnnounce}>
+            結果発表
+          </Button>
+        </FormControl>
+      </Container>
     </>
   );
 };
