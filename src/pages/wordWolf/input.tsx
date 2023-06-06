@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
 import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Container from "@mui/material/Container";
 
@@ -37,12 +38,12 @@ const PlayerInput = () => {
               minWidth: 300,
             }}
           >
-            <option value="3">3人</option>
-            <option value="4">4人</option>
-            <option value="5">5人</option>
-            <option value="6">6人</option>
-            <option value="7">7人</option>
-            <option value="8">8人</option>
+            <MenuItem value="3">3人</MenuItem>
+            <MenuItem value="4">4人</MenuItem>
+            <MenuItem value="5">5人</MenuItem>
+            <MenuItem value="6">6人</MenuItem>
+            <MenuItem value="7">7人</MenuItem>
+            <MenuItem value="8">8人</MenuItem>
           </Select>
           <Button variant="contained" onClick={handleDecidePlayer}>
             プレイヤーを決定する
