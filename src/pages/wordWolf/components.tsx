@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import type { WordType } from "./word";
-import FormControl from "@mui/material/FormControl";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 
@@ -49,14 +48,12 @@ const DisplayhancleCheckWord: React.FC<displayhancleCheckWordProps> = ({
 }) => {
   return (
     <Container component="main" maxWidth="xs">
-      <FormControl>
-        <p>
-          あなたのワードは<strong>{word}</strong>です
-        </p>
-        <Button variant="contained" onClick={handleConfirmWord}>
-          確認した
-        </Button>
-      </FormControl>
+      <p>
+        あなたのワードは<strong>{word}</strong>です
+      </p>
+      <Button variant="contained" onClick={handleConfirmWord}>
+        確認した
+      </Button>
     </Container>
   );
 };
@@ -75,15 +72,13 @@ const DisplayConfirmPlayer: React.FC<displayConfirmPlayerProps> = ({
 }) => {
   return (
     <Container component="main" maxWidth="xs">
-      <FormControl>
-        <p>あなたはプレイヤー{count}ですか</p>
-        <Button variant="contained" onClick={hancleCheckWord} sx={{ mb: 2 }}>
-          はい
-        </Button>
-        <Button variant="contained" onClick={handleWrongPlayer}>
-          いいえ
-        </Button>
-      </FormControl>
+      <p>あなたはプレイヤー{count}ですか</p>
+      <Button variant="contained" onClick={hancleCheckWord} sx={{ mr: 2 }}>
+        はい
+      </Button>
+      <Button variant="contained" onClick={handleWrongPlayer}>
+        いいえ
+      </Button>
     </Container>
   );
 };
@@ -96,12 +91,10 @@ type displayTalkProps = {
 const DisplayTalk: React.FC<displayTalkProps> = ({ handleAnnounceResult }) => {
   return (
     <Container component="main" maxWidth="xs">
-      <FormControl>
-        <p>全員にワードが行きわたりました。トークを開始してください</p>
-        <Button variant="contained" onClick={handleAnnounceResult}>
-          結果発表
-        </Button>
-      </FormControl>
+      <p>全員にワードが行きわたりました。トークを開始してください</p>
+      <Button variant="contained" onClick={handleAnnounceResult}>
+        結果発表
+      </Button>
     </Container>
   );
 };
