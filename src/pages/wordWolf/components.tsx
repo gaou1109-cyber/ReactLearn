@@ -38,7 +38,7 @@ const useWord = (wordArrays: WordType[]) => {
 
 // 【プレイヤー1にワードを見せる】
 type DisplayhancleCheckWordProps = {
-  word: String;
+  word: string;
   handleConfirmWord: React.MouseEventHandler<HTMLButtonElement>;
 };
 
