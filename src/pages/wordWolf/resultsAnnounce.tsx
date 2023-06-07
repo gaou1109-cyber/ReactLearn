@@ -15,17 +15,15 @@ const AnnounceResult = () => {
   };
 
   return (
-    <>
-      <Container component="main" maxWidth="xs">
-        <p>
-          今回の人狼はプレイヤー<strong>「{wolf}」</strong>で、ワードは
-          <strong>「{wolfWord}」</strong>です！
-        </p>
-        <Button variant="contained" onClick={tryAgain}>
-          もう一度プレーをする
-        </Button>
-      </Container>
-    </>
+    <Container component="main" maxWidth="xs">
+      <p>
+        今回の人狼はプレイヤー<strong>「{wolf}」</strong>で、ワードは
+        <strong>「{wolfWord}」</strong>です！
+      </p>
+      <Button variant="contained" onClick={tryAgain}>
+        もう一度プレーをする
+      </Button>
+    </Container>
   );
 };
 export default AnnounceResult;
