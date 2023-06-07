@@ -1,11 +1,10 @@
+import React, { useState } from "react";
 import { wordArrays } from "./word";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { useSelectWolf } from "../../hooks/useSelectWolf";
-import { useWord } from "../../hooks/useWord";
-import { DisplayhancleCheckWord } from "../../components/DisplayhancleCheckWord";
-import { DisplayConfirmPlayer } from "../../components/DisplayConfirmPlayer";
-import { DisplayTalk } from "../../components/DisplayTalk";
+import { useSelectWolf, useSelectWord } from "../../hooks";
+import { WordCheckDisplay } from "../../components/WordCheckDisplay";
+import { PlayerConfirmDisplay } from "../../components/PlayerConfirmDisplay";
+import { TalkDisplay } from "../../components/TalkDisplay";
 
 // 表示する画面
 const Display = () => {
@@ -18,12 +17,12 @@ const Display = () => {
   const wolf = useSelectWolf(playerNumber);
 
   // ワードを決定
-  const wordArray = useWord(wordArrays);
+  const wordArray = useSelectWord(wordArrays);
   const word: string =
     currentPlayer == wolf ? wordArray.minor : wordArray.majar;
 
   // 「Yes」ならプレイヤーにワードを見せる
-  const hancleCheckWord = (): void => {
+  const handleCheckWord = (): void => {
     setChecked(true);
   };
 
@@ -48,25 +47,25 @@ const Display = () => {
     }
   };
 
-  if (!checked && Number(playerNumber) >= currentPlayer) {
-    return (
-      <DisplayConfirmPlayer
-        currentPlayer={currentPlayer}
-        hancleCheckWord={() => hancleCheckWord()}
-        handleWrongPlayer={() => handleWrongPlayer()}
-      />
-    );
-  } else if (checked && Number(playerNumber) >= currentPlayer) {
-    return (
-      <DisplayhancleCheckWord
-        word={word}
-        handleConfirmWord={() => handleConfirmWord()}
-      />
-    );
-  } else if (Number(playerNumber) < currentPlayer) {
-    return <DisplayTalk handleAnnounceResult={() => handleAnnounceResult()} />;
+  if (Number(playerNumber) >= currentPlayer) {
+    if (!checked) {
+      return (
+        <PlayerConfirmDisplay
+          currentPlayer={currentPlayer}
+          handleCheckWord={() => handleCheckWord()}
+          handleWrongPlayer={() => handleWrongPlayer()}
+        />
+      );
+    } else {
+      return (
+        <WordCheckDisplay
+          word={word}
+          handleConfirmWord={() => handleConfirmWord()}
+        />
+      );
+    }
   }
-  return null;
+  return <TalkDisplay handleAnnounceResult={() => handleAnnounceResult()} />;
 };
 
 export default Display;

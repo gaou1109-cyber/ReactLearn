@@ -1,23 +1,22 @@
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import React from "react";
+import { Button, Container } from "@mui/material";
 
-// 【プレイヤーを確認する】
-type DisplayConfirmPlayerProps = {
+type PlayerConfirmDisplayProps = {
   currentPlayer: number;
-  hancleCheckWord: React.MouseEventHandler<HTMLButtonElement>;
+  handleCheckWord: React.MouseEventHandler<HTMLButtonElement>;
   handleWrongPlayer: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-export const DisplayConfirmPlayer: React.FC<DisplayConfirmPlayerProps> = ({
+// プレイヤーを確認する画面
+export const PlayerConfirmDisplay: React.FC<PlayerConfirmDisplayProps> = ({
   currentPlayer,
-  hancleCheckWord,
+  handleCheckWord,
   handleWrongPlayer,
 }) => {
   return (
     <Container component="main" maxWidth="xs">
       <p>あなたはプレイヤー{currentPlayer}ですか</p>
-      <Button variant="contained" onClick={hancleCheckWord} sx={{ mr: 2 }}>
+      <Button variant="contained" onClick={handleCheckWord} sx={{ mr: 2 }}>
         はい
       </Button>
       <Button variant="contained" onClick={handleWrongPlayer}>

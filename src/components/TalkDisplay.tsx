@@ -1,13 +1,12 @@
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import React from "react";
+import { Button, Container } from "@mui/material";
 
-// 【トークを開始させる】
-type DisplayTalkProps = {
+type TalkDisplayProps = {
   handleAnnounceResult: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-export const DisplayTalk: React.FC<DisplayTalkProps> = ({
+// トークを開始させる画面
+export const TalkDisplay: React.FC<TalkDisplayProps> = ({
   handleAnnounceResult,
 }) => {
   return (

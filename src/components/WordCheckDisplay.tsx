@@ -1,14 +1,13 @@
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import React from "react";
+import { Button, Container } from "@mui/material";
 
-// 【プレイヤー1にワードを見せる】
-type DisplayhancleCheckWordProps = {
+type WordCheckDisplayProps = {
   word: string;
   handleConfirmWord: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-export const DisplayhancleCheckWord: React.FC<DisplayhancleCheckWordProps> = ({
+// プレイヤーワードを見せる画面
+export const WordCheckDisplay: React.FC<WordCheckDisplayProps> = ({
   word,
   handleConfirmWord,
 }) => {
