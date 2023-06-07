@@ -37,12 +37,12 @@ const useWord = (wordArrays: WordType[]) => {
 };
 
 // 【プレイヤー1にワードを見せる】
-type displayhancleCheckWordProps = {
+type DisplayhancleCheckWordProps = {
   word: String;
   handleConfirmWord: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const DisplayhancleCheckWord: React.FC<displayhancleCheckWordProps> = ({
+const DisplayhancleCheckWord: React.FC<DisplayhancleCheckWordProps> = ({
   word,
   handleConfirmWord,
 }) => {
@@ -59,13 +59,13 @@ const DisplayhancleCheckWord: React.FC<displayhancleCheckWordProps> = ({
 };
 
 // 【プレイヤー1を確認する】
-type displayConfirmPlayerProps = {
+type DisplayConfirmPlayerProps = {
   count: number;
   hancleCheckWord: React.MouseEventHandler<HTMLButtonElement>;
   handleWrongPlayer: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const DisplayConfirmPlayer: React.FC<displayConfirmPlayerProps> = ({
+const DisplayConfirmPlayer: React.FC<DisplayConfirmPlayerProps> = ({
   count,
   hancleCheckWord,
   handleWrongPlayer,
@@ -84,11 +84,11 @@ const DisplayConfirmPlayer: React.FC<displayConfirmPlayerProps> = ({
 };
 
 // 【トークを開始させる】
-type displayTalkProps = {
+type DisplayTalkProps = {
   handleAnnounceResult: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const DisplayTalk: React.FC<displayTalkProps> = ({ handleAnnounceResult }) => {
+const DisplayTalk: React.FC<DisplayTalkProps> = ({ handleAnnounceResult }) => {
   return (
     <Container component="main" maxWidth="xs">
       <p>全員にワードが行きわたりました。トークを開始してください</p>
