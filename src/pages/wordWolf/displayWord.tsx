@@ -11,7 +11,7 @@ import {
 
 // 表示する画面
 const Display = () => {
-  const [count, setCount] = useState(1);
+  const [currentPlayer, setCurrentPlayer] = useState(1);
   const [checked, setChecked] = useState(false);
 
   //人狼を決定
@@ -21,7 +21,8 @@ const Display = () => {
 
   // ワードを決定
   const wordArray = useWord(wordArrays);
-  const word: string = count == wolf ? wordArray.minor : wordArray.majar;
+  const word: string =
+    currentPlayer == wolf ? wordArray.minor : wordArray.majar;
 
   // 「Yes」ならプレイヤーにワードを見せる
   const hancleCheckWord = (): void => {
@@ -30,12 +31,12 @@ const Display = () => {
 
   // 「No」なら該当プレイヤーにワードを見せるように指示
   const handleWrongPlayer = (): void => {
-    alert("プレイヤーに" + count + "画面を見せてください");
+    alert("プレイヤーに" + currentPlayer + "画面を見せてください");
   };
 
   //ワードを確認した場合
   const handleConfirmWord = (): void => {
-    setCount(count + 1);
+    setCurrentPlayer(currentPlayer + 1);
     setChecked(false);
   };
 
@@ -49,22 +50,22 @@ const Display = () => {
     }
   };
 
-  if (!checked && Number(playerNumber) >= count) {
+  if (!checked && Number(playerNumber) >= currentPlayer) {
     return (
       <DisplayConfirmPlayer
-        count={count}
+        currentPlayer={currentPlayer}
         hancleCheckWord={() => hancleCheckWord()}
         handleWrongPlayer={() => handleWrongPlayer()}
       />
     );
-  } else if (checked && Number(playerNumber) >= count) {
+  } else if (checked && Number(playerNumber) >= currentPlayer) {
     return (
       <DisplayhancleCheckWord
         word={word}
         handleConfirmWord={() => handleConfirmWord()}
       />
     );
-  } else if (Number(playerNumber) < count) {
+  } else if (Number(playerNumber) < currentPlayer) {
     return <DisplayTalk handleAnnounceResult={() => handleAnnounceResult()} />;
   }
   return null;

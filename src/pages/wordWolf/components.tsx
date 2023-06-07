@@ -60,19 +60,19 @@ const DisplayhancleCheckWord: React.FC<DisplayhancleCheckWordProps> = ({
 
 // 【プレイヤー1を確認する】
 type DisplayConfirmPlayerProps = {
-  count: number;
+  currentPlayer: number;
   hancleCheckWord: React.MouseEventHandler<HTMLButtonElement>;
   handleWrongPlayer: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const DisplayConfirmPlayer: React.FC<DisplayConfirmPlayerProps> = ({
-  count,
+  currentPlayer,
   hancleCheckWord,
   handleWrongPlayer,
 }) => {
   return (
     <Container component="main" maxWidth="xs">
-      <p>あなたはプレイヤー{count}ですか</p>
+      <p>あなたはプレイヤー{currentPlayer}ですか</p>
       <Button variant="contained" onClick={hancleCheckWord} sx={{ mr: 2 }}>
         はい
       </Button>
