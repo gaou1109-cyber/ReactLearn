@@ -1,9 +1,9 @@
-type wordType = {
+export type WordType = {
   majar: string;
   minor: string;
 };
 
-export const wordArrays: wordType[] = [
+export const wordArrays: WordType[] = [
   { majar: "プリン", minor: "シュークリーム" },
   { majar: "サバ", minor: "イワシ" },
   { majar: "ライオン", minor: "トラ" },
