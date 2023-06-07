@@ -1,13 +1,11 @@
 import { wordArrays } from "./word";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import {
-  useSelectWolf,
-  useWord,
-  DisplayTalk,
-  DisplayConfirmPlayer,
-  DisplayhancleCheckWord,
-} from "./components";
+import { useSelectWolf } from "../../hooks/useSelectWolf";
+import { useWord } from "../../hooks/useWord";
+import { DisplayhancleCheckWord } from "../../components/DisplayhancleCheckWord";
+import { DisplayConfirmPlayer } from "../../components/DisplayConfirmPlayer";
+import { DisplayTalk } from "../../components/DisplayTalk";
 
 // 表示する画面
 const Display = () => {
