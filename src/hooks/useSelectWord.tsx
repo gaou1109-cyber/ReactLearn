@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { WordType } from "../pages/wordWolf/word";
+import type { WordType } from "../word";
 
 // 【ワードの配列を返す】
 export const useSelectWord = (wordArrays: WordType[]) => {

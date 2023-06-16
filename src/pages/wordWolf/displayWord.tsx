@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { wordArrays } from "./word";
+import { wordArrays } from "../../word";
 import { useRouter } from "next/router";
 import { useSelectWolf, useSelectWord } from "../../hooks";
 import { WordCheckDisplay } from "../../components/WordCheckDisplay";
